@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 
 def cut(img):
-    a = cv2.imread('C:/Users/lwhoo/Documents/Tencent Files/471317526/FileRecv/detection/bg.png')
+    a = cv2.imread('./bg.png')
     d=np.zeros(a.shape)
     np.logical_and(a, img,d)
     result = img.copy()

@@ -5,8 +5,7 @@ import numpy as np
 def detectobj(diff,frame_lwpCV):
     point_list = []
     img = frame_lwpCV.copy()
-    image, contours, hierarchy = cv2.findContours(diff.copy(), cv2.RETR_EXTERNAL,
-                                                   cv2.CHAIN_APPROX_SIMPLE)  # 该函数计算一幅图像中目标的轮廓
+    contours, hierarchy = cv2.findContours(diff.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)  # 该函数计算一幅图像中目标的轮廓
     #cv2.drawContours(frame_lwpCV, contours, -1, (0, 255, 0), 3)
     i = 0
 
