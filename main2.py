@@ -12,7 +12,7 @@ if __name__ == '__main__':
     filename = "E:/FFOutput/龙洲垸船闸_上游靠船墩_20190108135824_20190108150952_-1665902912_0001 00_21_42-01_11_28.mp4"
     cutname = 'C:/Users/lwhoo/PycharmProjects/detection/龙洲垸船闸_上游靠船墩_20190108091510_20190108102553_-1666244087_0001.mp4'
     filename1 = "4.mp4"
-    file = './4.mp4'
+    file = './car.mp4'
 
 
     camera, ok, frame, length = read_frame.cam_init(file) # 71664
@@ -34,6 +34,7 @@ if __name__ == '__main__':
     while count < 10000:
         #计数
         count += 1
+        print('the frame count is',count)
         #读取帧
         success, frame_lwpCV = camera.read()
         if success != True:
@@ -42,7 +43,7 @@ if __name__ == '__main__':
         # frame_lwpCV = frame_background.cut(frame_lwpCV)
         # 当前帧的背景减除
         # 每 n 帧做一次背景减除 并进行对象监测，而在其间的n-1帧中采用跟踪算法
-        step = 10
+        step = 1
         diff = frame_background.process(fgbg,frame_lwpCV,count,step)
 
         if diff is not 0:

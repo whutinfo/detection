@@ -11,20 +11,21 @@ def cut(img):
 
 def morphologytrans(img, kernalsize):
     kernel = np.ones((kernalsize, kernalsize), np.uint8)
-    a = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
-    kernel1 = np.ones((kernalsize, kernalsize), np.uint8)
-    a = cv2.erode(a, kernel1, iterations=1)
+    a = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
+#    kernel1 = np.ones((kernalsize, kernalsize), np.uint8)
+#    a = cv2.erode(a, kernel1, iterations=1)
     return a
 
 def background_init():
-    fgbg = cv2.bgsegm.createBackgroundSubtractorGSOC()
+    fgbg = cv2.bgsegm.createBackgroundSubtractorGSOC(nSamples=20,replaceRate=0.04)
     return fgbg
 
 def process(fgbg,frame_lwpCV,count,step):
     if count%step == 0:
-
+        
         fgmask = fgbg.apply(frame_lwpCV)
-        diff = morphologytrans(fgmask, 10)
+        diff = fgmask
+#        diff = morphologytrans(fgmask, 3)
 
     else:
         diff = 0
