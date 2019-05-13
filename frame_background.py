@@ -24,8 +24,8 @@ def process(fgbg,frame_lwpCV,count,step):
     if count%step == 0:
         
         fgmask = fgbg.apply(frame_lwpCV)
-        diff = fgmask
-#        diff = morphologytrans(fgmask, 3)
+#        diff = fgmask
+        diff = morphologytrans(fgmask, 3)
 
     else:
         diff = 0

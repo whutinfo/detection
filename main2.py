@@ -45,7 +45,7 @@ if __name__ == '__main__':
         # 每 n 帧做一次背景减除 并进行对象监测，而在其间的n-1帧中采用跟踪算法
         step = 1
         diff = frame_background.process(fgbg,frame_lwpCV,count,step)
-
+#        if count > 50 :  #等背景生成稳定后进行处理
         if diff is not 0:
             cv2.imshow('dis', diff)
             # 当前帧的目标检测

@@ -14,7 +14,7 @@ def detectobj(diff,frame_lwpCV):
         countour_size = np.size(c, axis=0)  # 轮廓点个数
         # print(countour_size)
 
-        if countour_size > 40:  # 根据轮廓点的多少判断是否是噪声
+        if countour_size > 10:  # 根据轮廓点的多少判断是否是噪声
             x, y, w, h = cv2.boundingRect(c)
             # x_min1 = np.min(c[:, :, 0])
             # x_max1 = np.max(c[:, :, 0])
