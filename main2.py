@@ -12,7 +12,7 @@ if __name__ == '__main__':
     filename = "E:/FFOutput/龙洲垸船闸_上游靠船墩_20190108135824_20190108150952_-1665902912_0001 00_21_42-01_11_28.mp4"
     cutname = 'C:/Users/lwhoo/PycharmProjects/detection/龙洲垸船闸_上游靠船墩_20190108091510_20190108102553_-1666244087_0001.mp4'
     filename1 = "4.mp4"
-    file = 'C:/Users/lwhoo/Documents/Tencent Files/471317526/FileRecv/detection/4.mp4'
+    file = './4.mp4'
 
 
     camera, ok, frame, length = read_frame.cam_init(file) # 71664
@@ -25,7 +25,7 @@ if __name__ == '__main__':
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
     # Define the codec and create VideoWriter object.The output is stored in 'outpy.avi' file.
-    out = cv2.VideoWriter('C:/Users/lwhoo/Documents/Tencent Files/471317526/FileRecv/detection/outpy.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 10, (frame_width, frame_height))
+    out = cv2.VideoWriter('./outpy.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 10, (frame_width, frame_height))
 
     tracker_list = []
     detect_list = []
